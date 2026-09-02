@@ -1,23 +1,50 @@
-import logo from './logo.svg';
 import './App.css';
+import { Row, Container, Col } from 'react-bootstrap';
+
+import NavBar from './components/NavBar';
+import Menu from './components/Menu';
+import Footer from './components/Footer';
+import Contenu from './components/Contenu';
+import ImageCegep from './components/ImageCegep';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div>
+      <Container style={{ marginTop: "20px" }}>
+
+        <Row
+          style={{
+            border: "1px solid black",
+            padding: "10px",
+            marginBottom: "10px"
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          <NavBar />
+        </Row>
+
+
+        <Row
+          style={{
+            border: "1px solid black",
+            padding: "10px",
+            marginBottom: "10px"
+          }}
+        >
+          <Contenu />
+        </Row>
+
+
+        <Row
+          style={{
+            border: "1px solid black",
+            padding: "10px",
+            marginBottom: "10px"
+          }}
+        >
+          <Footer />
+        </Row>
+
+      </Container>
     </div>
   );
 }
