@@ -14,6 +14,7 @@ export default function App() {
     <div className={styles.app}>
 
       <NavBar
+        sectionActive={sectionActive}
         changerSection={setSectionActive}
       />
 

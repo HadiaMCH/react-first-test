@@ -4,14 +4,23 @@ import { Nav } from 'react-bootstrap';
 
 import styles from './Menu.module.css';
 
-export default function Menu({ changerSection }) {
+export default function Menu({
+  sectionActive,
+  changerSection
+}) {
 
   return (
     <Nav className={styles.menu}>
 
+      {/* ACCUEIL */}
+
       <Nav.Link
         href="#"
-        className={styles.link}
+        className={
+          sectionActive === 'accueil'
+            ? styles.active
+            : styles.link
+        }
         onClick={(event) => {
           event.preventDefault();
           changerSection('accueil');
@@ -21,9 +30,15 @@ export default function Menu({ changerSection }) {
       </Nav.Link>
 
 
+      {/* FORMATIONS */}
+
       <Nav.Link
         href="#"
-        className={styles.link}
+        className={
+          sectionActive === 'formations'
+            ? styles.active
+            : styles.link
+        }
         onClick={(event) => {
           event.preventDefault();
           changerSection('formations');
@@ -33,17 +48,15 @@ export default function Menu({ changerSection }) {
       </Nav.Link>
 
 
-      <Nav.Link
-        href="#"
-        className={styles.link}
-      >
-        Services
-      </Nav.Link>
-
+      {/* À PROPOS */}
 
       <Nav.Link
         href="#"
-        className={styles.link}
+        className={
+          sectionActive === 'apropos'
+            ? styles.active
+            : styles.link
+        }
         onClick={(event) => {
           event.preventDefault();
           changerSection('apropos');
@@ -52,15 +65,6 @@ export default function Menu({ changerSection }) {
         À propos
       </Nav.Link>
 
-
-      <Nav.Link
-        href="#contact"
-        className={styles.contact}
-      >
-        Nous joindre
-      </Nav.Link>
-
     </Nav>
   );
 }
-

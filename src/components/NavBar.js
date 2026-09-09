@@ -10,7 +10,7 @@ import Menu from './Menu';
 
 import styles from './NavBar.module.css';
 
-export default function NavBar({ changerSection }) {
+export default function NavBar({ sectionActive, changerSection }) {
 
   return (
     <Navbar
@@ -34,6 +34,7 @@ export default function NavBar({ changerSection }) {
         <div className="ms-auto">
 
           <Menu
+            sectionActive={sectionActive}
             changerSection={changerSection}
           />
 

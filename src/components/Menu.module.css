@@ -3,6 +3,11 @@
   gap: 8px;
 }
 
+
+/* =============================
+   LIEN NORMAL
+============================= */
+
 .link {
   color: #334155 !important;
 
@@ -16,10 +21,29 @@
   transition: all 0.25s ease;
 }
 
-.link:hover {
-  color: #007f75 !important;
-  background-color: #e9f7f5;
+
+
+/* =============================
+   LIEN ACTIF
+============================= */
+
+.active {
+  color: white !important;
+
+  background-color: #007f75 !important;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  padding: 10px 14px !important;
+
+  border-radius: 8px;
 }
+
+
+/* =============================
+   NOUS JOINDRE NORMAL
+============================= */
 
 .contact {
   color: white !important;
@@ -36,21 +60,22 @@
   margin-left: 10px;
 }
 
-.contact:hover {
-  background-color: #00665e;
-  transform: translateY(-1px);
-}
+
+/* =============================
+   RESPONSIVE
+============================= */
 
 @media (max-width: 991px) {
 
   .menu {
     align-items: flex-start;
+
     padding-top: 20px;
   }
 
   .contact {
     margin-left: 0;
+
     margin-top: 5px;
   }
-
 }
