@@ -1,23 +1,36 @@
-import React from 'react'
-import Menu from './Menu'
+import React from 'react';
+
+import styles from './MenuFooter.module.css';
 
 export default function MenuFooter() {
+
   return (
-    <div className="row">
-        <div className="col-6">
-            <Menu />
-        </div>
+    <div>
 
-        <div className="col-6">
-           <a href="#">Mission</a>
-           <br />
+      <h5 className={styles.title}>
+        Liens rapides
+      </h5>
 
-           <a href="#">Objectifs</a>
-           <br />
+      <div className={styles.links}>
 
-           <a href="#">À propos</a>
-        </div>
+        <a href="#">
+          Les formations
+        </a>
+
+        <a href="#">
+          Services aux étudiants
+        </a>
+
+        <a href="#">
+          À propos
+        </a>
+
+        <a href="#">
+          Nous joindre
+        </a>
+
+      </div>
 
     </div>
-  )
+  );
 }

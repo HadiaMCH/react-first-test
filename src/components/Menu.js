@@ -1,23 +1,49 @@
-import React from 'react'
+import React from 'react';
+
+import { Nav } from 'react-bootstrap';
+
+import styles from './Menu.module.css';
 
 export default function Menu() {
+
   return (
-    <div>
-      <h5>Le menu</h5>
+    <Nav className={styles.menu}>
 
-      <ul>
-        <li>
-          <a href="#">Les formations</a>
-        </li>
+      <Nav.Link
+        href="#"
+        className={styles.link}
+      >
+        Accueil
+      </Nav.Link>
 
-        <li>
-          <a href="#">Les consultants</a>
-        </li>
+      <Nav.Link
+        href="#"
+        className={styles.link}
+      >
+        Formations
+      </Nav.Link>
 
-        <li>
-          <a href="#">Les conseillers</a>
-        </li>
-      </ul>
-    </div>
-  )
+      <Nav.Link
+        href="#"
+        className={styles.link}
+      >
+        Services
+      </Nav.Link>
+
+      <Nav.Link
+        href="#"
+        className={styles.link}
+      >
+        À propos
+      </Nav.Link>
+
+      <Nav.Link
+        href="#"
+        className={styles.contact}
+      >
+        Nous joindre
+      </Nav.Link>
+
+    </Nav>
+  );
 }

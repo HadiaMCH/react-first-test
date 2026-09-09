@@ -1,0 +1,35 @@
+.info {
+  color: #cbd5e1;
+}
+
+.title {
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  margin-bottom: 18px;
+}
+
+.info p {
+  margin: 5px 0;
+
+  font-size: 14px;
+
+  color: #94a3b8;
+}
+
+.contact {
+  display: inline-block;
+
+  margin-top: 12px;
+
+  color: #5eead4;
+
+  font-weight: 600;
+}
+
+.contact:hover {
+  color: white;
+}

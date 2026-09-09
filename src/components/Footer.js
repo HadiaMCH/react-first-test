@@ -1,18 +1,78 @@
-import React from 'react'
-import InfoEcole from './InfoEcole'
-import { Row,Col } from 'react-bootstrap'
-import MenuFooter from './MenuFooter'
+import React from 'react';
+
+import {
+  Container,
+  Row,
+  Col
+} from 'react-bootstrap';
+
+import MenuFooter from './MenuFooter';
+import InfoEcole from './InfoEcole';
+
+import styles from './Footer.module.css';
+
 export default function Footer() {
+
   return (
-    <div>
-        <Row>
-            <Col xs={8} ClassName="border  border-dark p-2">
-                <MenuFooter />
-            </Col>
-            <Col xs={4} ClassName="border  border-dark p-2">
-                <InfoEcole />
-            </Col>
+    <footer
+      id="contact"
+      className={styles.footer}
+    >
+
+      <Container>
+
+        <Row className="g-5">
+
+          <Col
+            md={6}
+            lg={5}
+          >
+
+            <h4 className={styles.logo}>
+              Cégep de La Pocatière
+            </h4>
+
+            <p className={styles.description}>
+              Un milieu d'apprentissage stimulant,
+              innovant et humain pour construire
+              l'avenir de nos étudiants.
+            </p>
+
+          </Col>
+
+
+          <Col
+            md={3}
+            lg={3}
+          >
+            <MenuFooter />
+          </Col>
+
+
+          <Col
+            md={3}
+            lg={4}
+          >
+            <InfoEcole />
+          </Col>
+
         </Row>
-    </div>
-  )
+
+
+        <div className={styles.bottom}>
+
+          <span>
+            © 2026 Cégep de La Pocatière
+          </span>
+
+          <span>
+            Tous droits réservés
+          </span>
+
+        </div>
+
+      </Container>
+
+    </footer>
+  );
 }

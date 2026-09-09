@@ -1,39 +1,36 @@
-import React from 'react'
-import { Row, Col } from 'react-bootstrap';
+import React from 'react';
 
-import Menu from './Menu';
+import {
+  Navbar,
+  Container
+} from 'react-bootstrap';
+
 import ImageCegep from './ImageCegep';
+import Menu from './Menu';
+
+import styles from './NavBar.module.css';
 
 export default function NavBar() {
+
   return (
-    <Row
-          style={{
-            border: "1px solid black",
-            padding: "10px",
-            marginBottom: "10px"
-          }}
-        >
+    <Navbar
+      expand="lg"
+      sticky="top"
+      className={styles.navbar}
+    >
 
-          <Col
-            xs={8}
-            style={{
-              border: "1px solid black",
-              padding: "10px"
-            }}
-          >
-            <ImageCegep />
-          </Col>
+      <Container>
 
-          <Col
-            xs={4}
-            style={{
-              border: "1px solid black",
-              padding: "10px"
-            }}
-          >
-            <Menu />
-          </Col>
+        <Navbar.Brand href="#">
+          <ImageCegep />
+        </Navbar.Brand>
 
-        </Row>
-  )
+        <div className="ms-auto">
+          <Menu />
+        </div>
+
+      </Container>
+
+    </Navbar>
+  );
 }

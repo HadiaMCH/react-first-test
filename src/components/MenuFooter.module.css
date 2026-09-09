@@ -1,0 +1,29 @@
+.title {
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  margin-bottom: 18px;
+}
+
+.links {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.links a {
+  color: #94a3b8;
+
+  font-size: 14px;
+}
+
+.links a:hover {
+  color: #5eead4;
+
+  transform: translateX(4px);
+}
