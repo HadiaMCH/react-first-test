@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import NavBar from './components/NavBar';
 import Contenu from './components/Contenu';
@@ -6,14 +6,22 @@ import Footer from './components/Footer';
 
 import styles from './App.module.css';
 
-function App() {
+export default function App() {
+
+  const [sectionActive, setSectionActive] = useState('accueil');
+
   return (
     <div className={styles.app}>
 
-      <NavBar />
+      <NavBar
+        changerSection={setSectionActive}
+      />
 
       <main>
-        <Contenu />
+        <Contenu
+          sectionActive={sectionActive}
+          changerSection={setSectionActive}
+        />
       </main>
 
       <Footer />
@@ -21,5 +29,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

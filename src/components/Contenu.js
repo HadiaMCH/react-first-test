@@ -13,308 +13,410 @@ import imageCampus from '../assets/NYC.png';
 
 import styles from './Contenu.module.css';
 
-export default function Contenu() {
+export default function Contenu({
+  sectionActive,
+  changerSection
+}) {
 
   return (
     <>
 
-      {/* SECTION PRINCIPALE */}
 
-      <section
-        id="accueil"
-        className={styles.hero}
-      >
+      {/* =================================
+          SECTION PRINCIPALE
+      ================================= */}
 
-        <Container>
+      {sectionActive === 'accueil' && (
 
-          <Row className="align-items-center g-5">
+        <section
+          id="accueil"
+          className={styles.hero}
+        >
 
-            <Col lg={6}>
+          <Container>
 
-              <Badge
-                bg="light"
-                text="dark"
-                className={styles.badge}
-              >
-                Bienvenue au Cégep
-              </Badge>
+            <Row className="align-items-center g-5">
 
-              <h1 className={styles.title}>
-                Construisez votre avenir
-                <span> au Cégep de La Pocatière</span>
-              </h1>
+              <Col lg={6}>
 
-              <p className={styles.description}>
-                Découvrez un milieu d'apprentissage dynamique,
-                humain et innovant où chaque étudiant peut
-                développer son plein potentiel.
-              </p>
-
-              <div className={styles.buttons}>
-
-                <Button
-                  href="#formations"
-                  className={styles.primaryButton}
+                <Badge
+                  bg="light"
+                  text="dark"
+                  className={styles.badge}
                 >
-                  Découvrir nos formations
-                </Button>
-
-                <Button
-                  href="#apropos"
-                  variant="outline-secondary"
-                  className={styles.secondaryButton}
-                >
-                  En savoir plus
-                </Button>
-
-              </div>
-
-            </Col>
+                  Bienvenue au Cégep
+                </Badge>
 
 
-            <Col lg={6}>
+                <h1 className={styles.title}>
 
-              <div className={styles.imageContainer}>
-
-                <img
-                  src={imageCampus}
-                  alt="Expérience étudiante"
-                  className={styles.heroImage}
-                />
-
-                <div className={styles.imageCard}>
-                  <strong>Une expérience unique</strong>
+                  Construisez votre avenir
 
                   <span>
-                    Étudier, apprendre et évoluer.
+                    {' '}au Cégep de La Pocatière
                   </span>
+
+                </h1>
+
+
+                <p className={styles.description}>
+
+                  Découvrez un milieu d'apprentissage dynamique,
+                  humain et innovant où chaque étudiant peut
+                  développer son plein potentiel.
+
+                </p>
+
+
+                <div className={styles.buttons}>
+
+                  <Button
+                    className={styles.primaryButton}
+                    onClick={() =>
+                      changerSection('formations')
+                    }
+                  >
+                    Découvrir nos formations
+                  </Button>
+
+
+                  <Button
+                    variant="outline-secondary"
+                    className={styles.secondaryButton}
+                    onClick={() =>
+                      changerSection('apropos')
+                    }
+                  >
+                    En savoir plus
+                  </Button>
+
                 </div>
 
-              </div>
-
-            </Col>
-
-          </Row>
-
-        </Container>
-
-      </section>
+              </Col>
 
 
+              <Col lg={6}>
 
-      {/* FORMATIONS */}
+                <div className={styles.imageContainer}>
 
-      <section
-        id="formations"
-        className={styles.section}
-      >
+                  <img
+                    src={imageCampus}
+                    alt="Expérience étudiante"
+                    className={styles.heroImage}
+                  />
 
-        <Container>
+                  <div className={styles.imageCard}>
 
-          <div className={styles.sectionHeader}>
+                    <strong>
+                      Une expérience unique
+                    </strong>
 
-            <span className={styles.smallTitle}>
-              NOS PROGRAMMES
-            </span>
+                    <span>
+                      Étudier, apprendre et évoluer.
+                    </span>
 
-            <h2>
-              Trouvez la formation qui vous ressemble
-            </h2>
-
-            <p>
-              Des programmes conçus pour préparer les étudiants
-              aux réalités du marché du travail et aux études
-              universitaires.
-            </p>
-
-          </div>
-
-
-          <Row className="g-4">
-
-            <Col md={6} lg={4}>
-
-              <Card className={styles.card}>
-
-                <Card.Body>
-
-                  <div className={styles.icon}>
-                    💻
                   </div>
 
-                  <Card.Title>
-                    Informatique
-                  </Card.Title>
+                </div>
 
-                  <Card.Text>
-                    Développez des applications Web,
-                    mobiles et logicielles avec les
-                    technologies modernes.
-                  </Card.Text>
+              </Col>
 
-                  <a
-                    href="#services"
-                    className={styles.cardLink}
-                  >
-                    Découvrir →
-                  </a>
+            </Row>
 
-                </Card.Body>
+          </Container>
 
-              </Card>
+        </section>
 
-            </Col>
-
-
-            <Col md={6} lg={4}>
-
-              <Card className={styles.card}>
-
-                <Card.Body>
-
-                  <div className={styles.icon}>
-                    ⚙️
-                  </div>
-
-                  <Card.Title>
-                    Technologie
-                  </Card.Title>
-
-                  <Card.Text>
-                    Apprenez à concevoir, analyser et réaliser
-                    des solutions techniques innovantes.
-                  </Card.Text>
-
-                  <a
-                    href="#services"
-                    className={styles.cardLink}
-                  >
-                    Découvrir →
-                  </a>
-
-                </Card.Body>
-
-              </Card>
-
-            </Col>
-
-
-            <Col md={6} lg={4}>
-
-              <Card className={styles.card}>
-
-                <Card.Body>
-
-                  <div className={styles.icon}>
-                    🎓
-                  </div>
-
-                  <Card.Title>
-                    Formation générale
-                  </Card.Title>
-
-                  <Card.Text>
-                    Développez vos compétences, votre créativité
-                    et votre capacité à communiquer.
-                  </Card.Text>
-
-                  <a
-                    href="#services"
-                    className={styles.cardLink}
-                  >
-                    Découvrir →
-                  </a>
-
-                </Card.Body>
-
-              </Card>
-
-            </Col>
-
-          </Row>
-
-        </Container>
-
-      </section>
+      )}
 
 
 
-      {/* À PROPOS */}
+      {/* =================================
+          FORMATIONS
+      ================================= */}
 
-      <section
-        id="apropos"
-        className={styles.aboutSection}
-      >
+      {sectionActive === 'formations' && (
 
-        <Container>
+        <section
+          id="formations"
+          className={styles.section}
+        >
 
-          <Row className="align-items-center g-5">
+          <Container>
 
-            <Col lg={6}>
+            <div className={styles.sectionHeader}>
 
               <span className={styles.smallTitle}>
-                LE CÉGEP
+                NOS PROGRAMMES
               </span>
 
-              <h2 className={styles.aboutTitle}>
-                Un milieu à dimension humaine
+              <h2>
+                Trouvez la formation qui vous ressemble
               </h2>
 
               <p>
-                Le Cégep de La Pocatière offre un environnement
-                stimulant où les étudiants peuvent apprendre,
-                expérimenter et développer leurs compétences.
+                Des programmes conçus pour préparer les étudiants
+                aux réalités du marché du travail et aux études
+                universitaires.
               </p>
 
-              <p>
-                Notre approche favorise la réussite scolaire,
-                l'autonomie et la préparation au marché du travail.
-              </p>
-
-            </Col>
+            </div>
 
 
-            <Col lg={6}>
+            <Row className="g-4">
 
-              <Row className="g-3">
 
-                <Col sm={6}>
-                  <div className={styles.stat}>
-                    <strong>20+</strong>
-                    <span>Programmes</span>
-                  </div>
-                </Col>
+              {/* INFORMATIQUE */}
 
-                <Col sm={6}>
-                  <div className={styles.stat}>
-                    <strong>100%</strong>
-                    <span>Engagement</span>
-                  </div>
-                </Col>
+              <Col md={6} lg={4}>
 
-                <Col sm={6}>
-                  <div className={styles.stat}>
-                    <strong>60+</strong>
-                    <span>Années d'expérience</span>
-                  </div>
-                </Col>
+                <Card className={styles.card}>
 
-                <Col sm={6}>
-                  <div className={styles.stat}>
-                    <strong>1</strong>
-                    <span>Communauté</span>
-                  </div>
-                </Col>
+                  <Card.Body>
 
-              </Row>
+                    <div className={styles.icon}>
+                      💻
+                    </div>
 
-            </Col>
+                    <Card.Title>
+                      Informatique
+                    </Card.Title>
 
-          </Row>
+                    <Card.Text>
 
-        </Container>
+                      Développez des applications Web,
+                      mobiles et logicielles avec les
+                      technologies modernes.
 
-      </section>
+                    </Card.Text>
+
+                    <a
+                      href="#services"
+                      className={styles.cardLink}
+                    >
+                      Découvrir →
+                    </a>
+
+                  </Card.Body>
+
+                </Card>
+
+              </Col>
+
+
+
+              {/* TECHNOLOGIE */}
+
+              <Col md={6} lg={4}>
+
+                <Card className={styles.card}>
+
+                  <Card.Body>
+
+                    <div className={styles.icon}>
+                      ⚙️
+                    </div>
+
+                    <Card.Title>
+                      Technologie
+                    </Card.Title>
+
+                    <Card.Text>
+
+                      Apprenez à concevoir, analyser et réaliser
+                      des solutions techniques innovantes.
+
+                    </Card.Text>
+
+                    <a
+                      href="#services"
+                      className={styles.cardLink}
+                    >
+                      Découvrir →
+                    </a>
+
+                  </Card.Body>
+
+                </Card>
+
+              </Col>
+
+
+
+              {/* FORMATION GÉNÉRALE */}
+
+              <Col md={6} lg={4}>
+
+                <Card className={styles.card}>
+
+                  <Card.Body>
+
+                    <div className={styles.icon}>
+                      🎓
+                    </div>
+
+                    <Card.Title>
+                      Formation générale
+                    </Card.Title>
+
+                    <Card.Text>
+
+                      Développez vos compétences, votre créativité
+                      et votre capacité à communiquer.
+
+                    </Card.Text>
+
+                    <a
+                      href="#services"
+                      className={styles.cardLink}
+                    >
+                      Découvrir →
+                    </a>
+
+                  </Card.Body>
+
+                </Card>
+
+              </Col>
+
+            </Row>
+
+          </Container>
+
+        </section>
+
+      )}
+
+
+
+      {/* =================================
+          À PROPOS
+      ================================= */}
+
+      {sectionActive === 'apropos' && (
+
+        <section
+          id="apropos"
+          className={styles.aboutSection}
+        >
+
+          <Container>
+
+            <Row className="align-items-center g-5">
+
+              <Col lg={6}>
+
+                <span className={styles.smallTitle}>
+                  LE CÉGEP
+                </span>
+
+
+                <h2 className={styles.aboutTitle}>
+                  Un milieu à dimension humaine
+                </h2>
+
+
+                <p>
+
+                  Le Cégep de La Pocatière offre un environnement
+                  stimulant où les étudiants peuvent apprendre,
+                  expérimenter et développer leurs compétences.
+
+                </p>
+
+
+                <p>
+
+                  Notre approche favorise la réussite scolaire,
+                  l'autonomie et la préparation au marché du travail.
+
+                </p>
+
+              </Col>
+
+
+              <Col lg={6}>
+
+                <Row className="g-3">
+
+                  <Col sm={6}>
+
+                    <div className={styles.stat}>
+
+                      <strong>
+                        20+
+                      </strong>
+
+                      <span>
+                        Programmes
+                      </span>
+
+                    </div>
+
+                  </Col>
+
+
+                  <Col sm={6}>
+
+                    <div className={styles.stat}>
+
+                      <strong>
+                        100%
+                      </strong>
+
+                      <span>
+                        Engagement
+                      </span>
+
+                    </div>
+
+                  </Col>
+
+
+                  <Col sm={6}>
+
+                    <div className={styles.stat}>
+
+                      <strong>
+                        60+
+                      </strong>
+
+                      <span>
+                        Années d'expérience
+                      </span>
+
+                    </div>
+
+                  </Col>
+
+
+                  <Col sm={6}>
+
+                    <div className={styles.stat}>
+
+                      <strong>
+                        1
+                      </strong>
+
+                      <span>
+                        Communauté
+                      </span>
+
+                    </div>
+
+                  </Col>
+
+                </Row>
+
+              </Col>
+
+            </Row>
+
+          </Container>
+
+        </section>
+
+      )}
 
     </>
   );

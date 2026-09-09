@@ -10,7 +10,7 @@ import Menu from './Menu';
 
 import styles from './NavBar.module.css';
 
-export default function NavBar() {
+export default function NavBar({ changerSection }) {
 
   return (
     <Navbar
@@ -21,12 +21,22 @@ export default function NavBar() {
 
       <Container>
 
-        <Navbar.Brand href="#">
+        <Navbar.Brand
+          href="#"
+          onClick={(event) => {
+            event.preventDefault();
+            changerSection('accueil');
+          }}
+        >
           <ImageCegep />
         </Navbar.Brand>
 
         <div className="ms-auto">
-          <Menu />
+
+          <Menu
+            changerSection={changerSection}
+          />
+
         </div>
 
       </Container>
