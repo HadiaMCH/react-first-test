@@ -4,14 +4,16 @@ import {
   Container,
   Row,
   Col,
-  Card,
   Button,
   Badge
 } from 'react-bootstrap';
 
 import imageCampus from '../assets/NYC.png';
 
+import ListeProgrammes from './ListeProgrammes';
+
 import styles from './Contenu.module.css';
+
 
 export default function Contenu({
   sectionActive,
@@ -23,7 +25,7 @@ export default function Contenu({
 
 
       {/* =================================
-          SECTION PRINCIPALE
+          ACCUEIL
       ================================= */}
 
       {sectionActive === 'accueil' && (
@@ -150,9 +152,11 @@ export default function Contenu({
                 NOS PROGRAMMES
               </span>
 
+
               <h2>
                 Trouvez la formation qui vous ressemble
               </h2>
+
 
               <p>
                 Des programmes conçus pour préparer les étudiants
@@ -163,123 +167,10 @@ export default function Contenu({
             </div>
 
 
-            <Row className="g-4">
+            {/* NOUVEAU COMPOSANT */}
 
+            <ListeProgrammes />
 
-              {/* INFORMATIQUE */}
-
-              <Col md={6} lg={4}>
-
-                <Card className={styles.card}>
-
-                  <Card.Body>
-
-                    <div className={styles.icon}>
-                      💻
-                    </div>
-
-                    <Card.Title>
-                      Informatique
-                    </Card.Title>
-
-                    <Card.Text>
-
-                      Développez des applications Web,
-                      mobiles et logicielles avec les
-                      technologies modernes.
-
-                    </Card.Text>
-
-                    <a
-                      href="#services"
-                      className={styles.cardLink}
-                    >
-                      Découvrir →
-                    </a>
-
-                  </Card.Body>
-
-                </Card>
-
-              </Col>
-
-
-
-              {/* TECHNOLOGIE */}
-
-              <Col md={6} lg={4}>
-
-                <Card className={styles.card}>
-
-                  <Card.Body>
-
-                    <div className={styles.icon}>
-                      ⚙️
-                    </div>
-
-                    <Card.Title>
-                      Technologie
-                    </Card.Title>
-
-                    <Card.Text>
-
-                      Apprenez à concevoir, analyser et réaliser
-                      des solutions techniques innovantes.
-
-                    </Card.Text>
-
-                    <a
-                      href="#services"
-                      className={styles.cardLink}
-                    >
-                      Découvrir →
-                    </a>
-
-                  </Card.Body>
-
-                </Card>
-
-              </Col>
-
-
-
-              {/* FORMATION GÉNÉRALE */}
-
-              <Col md={6} lg={4}>
-
-                <Card className={styles.card}>
-
-                  <Card.Body>
-
-                    <div className={styles.icon}>
-                      🎓
-                    </div>
-
-                    <Card.Title>
-                      Formation générale
-                    </Card.Title>
-
-                    <Card.Text>
-
-                      Développez vos compétences, votre créativité
-                      et votre capacité à communiquer.
-
-                    </Card.Text>
-
-                    <a
-                      href="#services"
-                      className={styles.cardLink}
-                    >
-                      Découvrir →
-                    </a>
-
-                  </Card.Body>
-
-                </Card>
-
-              </Col>
-
-            </Row>
 
           </Container>
 
