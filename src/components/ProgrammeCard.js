@@ -6,6 +6,8 @@ import {
   Badge
 } from 'react-bootstrap';
 
+import { Link } from 'react-router-dom';
+
 import styles from './ProgrammeCard.module.css';
 
 
@@ -74,19 +76,35 @@ export default function ProgrammeCard({
         </Card.Text>
 
 
-        {/* ACTION */}
+        {/* ACTIONS */}
 
-        <Button
-          variant="outline-danger"
-          size="sm"
-          onClick={() =>
-            onSupprimer(programme.id)
-          }
-        >
+        <div className="d-flex gap-2">
 
-          Supprimer
+          <Button
+            as={Link}
+            to={`/formations/${programme.id}`}
+            variant="outline-success"
+            size="sm"
+          >
 
-        </Button>
+            Voir détails
+
+          </Button>
+
+
+          <Button
+            variant="outline-danger"
+            size="sm"
+            onClick={() =>
+              onSupprimer(programme.id)
+            }
+          >
+
+            Supprimer
+
+          </Button>
+
+        </div>
 
 
       </Card.Body>
@@ -94,4 +112,5 @@ export default function ProgrammeCard({
     </Card>
 
   );
+
 }

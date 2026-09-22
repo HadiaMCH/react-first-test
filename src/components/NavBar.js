@@ -5,14 +5,18 @@ import {
   Container
 } from 'react-bootstrap';
 
+import { Link } from 'react-router-dom';
+
 import ImageCegep from './ImageCegep';
 import Menu from './Menu';
 
 import styles from './NavBar.module.css';
 
-export default function NavBar({ sectionActive, changerSection }) {
+
+export default function NavBar() {
 
   return (
+
     <Navbar
       expand="lg"
       sticky="top"
@@ -22,26 +26,25 @@ export default function NavBar({ sectionActive, changerSection }) {
       <Container>
 
         <Navbar.Brand
-          href="#"
-          onClick={(event) => {
-            event.preventDefault();
-            changerSection('accueil');
-          }}
+          as={Link}
+          to="/"
         >
+
           <ImageCegep />
+
         </Navbar.Brand>
+
 
         <div className="ms-auto">
 
-          <Menu
-            sectionActive={sectionActive}
-            changerSection={changerSection}
-          />
+          <Menu />
 
         </div>
 
       </Container>
 
     </Navbar>
+
   );
+
 }

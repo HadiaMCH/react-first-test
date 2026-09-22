@@ -1,314 +1,70 @@
 import React from 'react';
 
 import {
-  Container,
-  Row,
-  Col,
-  Button,
-  Badge
-} from 'react-bootstrap';
+  Routes,
+  Route
+} from 'react-router-dom';
 
-import imageCampus from '../assets/NYC.png';
-
-import ListeProgrammes from './ListeProgrammes';
-
-import styles from './Contenu.module.css';
+import Acceuil from './ecrans/Acceuil';
+import Formations from './ecrans/Formations';
+import Apropos from './ecrans/Apropos';
+import ProgrammeDetail from './ecrans/ProgrammeDetail';
 
 
 export default function Contenu({
-  sectionActive,
-  changerSection
+  programmes,
+  onSupprimer
 }) {
 
   return (
-    <>
 
+    <Routes>
 
-      {/* =================================
-          ACCUEIL
-      ================================= */}
+      {/* ACCUEIL */}
 
-      {sectionActive === 'accueil' && (
+      <Route
+        path="/"
+        element={
+          <Acceuil />
+        }
+      />
 
-        <section
-          id="accueil"
-          className={styles.hero}
-        >
 
-          <Container>
+      {/* FORMATIONS */}
 
-            <Row className="align-items-center g-5">
+      <Route
+        path="/formations"
+        element={
+          <Formations
+            programmes={programmes}
+            onSupprimer={onSupprimer}
+          />
+        }
+      />
 
-              <Col lg={6}>
 
-                <Badge
-                  bg="light"
-                  text="dark"
-                  className={styles.badge}
-                >
-                  Bienvenue au Cégep
-                </Badge>
+      {/* DÉTAIL D'UN PROGRAMME */}
 
+      <Route
+        path="/formations/:id"
+        element={
+          <ProgrammeDetail
+            programmes={programmes}
+          />
+        }
+      />
 
-                <h1 className={styles.title}>
 
-                  Construisez votre avenir
+      {/* À PROPOS */}
 
-                  <span>
-                    {' '}au Cégep de La Pocatière
-                  </span>
+      <Route
+        path="/apropos"
+        element={
+          <Apropos />
+        }
+      />
 
-                </h1>
+    </Routes>
 
-
-                <p className={styles.description}>
-
-                  Découvrez un milieu d'apprentissage dynamique,
-                  humain et innovant où chaque étudiant peut
-                  développer son plein potentiel.
-
-                </p>
-
-
-                <div className={styles.buttons}>
-
-                  <Button
-                    className={styles.primaryButton}
-                    onClick={() =>
-                      changerSection('formations')
-                    }
-                  >
-                    Découvrir nos formations
-                  </Button>
-
-
-                  <Button
-                    variant="outline-secondary"
-                    className={styles.secondaryButton}
-                    onClick={() =>
-                      changerSection('apropos')
-                    }
-                  >
-                    En savoir plus
-                  </Button>
-
-                </div>
-
-              </Col>
-
-
-              <Col lg={6}>
-
-                <div className={styles.imageContainer}>
-
-                  <img
-                    src={imageCampus}
-                    alt="Expérience étudiante"
-                    className={styles.heroImage}
-                  />
-
-                  <div className={styles.imageCard}>
-
-                    <strong>
-                      Une expérience unique
-                    </strong>
-
-                    <span>
-                      Étudier, apprendre et évoluer.
-                    </span>
-
-                  </div>
-
-                </div>
-
-              </Col>
-
-            </Row>
-
-          </Container>
-
-        </section>
-
-      )}
-
-
-
-      {/* =================================
-          FORMATIONS
-      ================================= */}
-
-      {sectionActive === 'formations' && (
-
-        <section
-          id="formations"
-          className={styles.section}
-        >
-
-          <Container>
-
-            <div className={styles.sectionHeader}>
-
-              <span className={styles.smallTitle}>
-                NOS PROGRAMMES
-              </span>
-
-
-              <h2>
-                Trouvez la formation qui vous ressemble
-              </h2>
-
-
-              <p>
-                Des programmes conçus pour préparer les étudiants
-                aux réalités du marché du travail et aux études
-                universitaires.
-              </p>
-
-            </div>
-
-
-            {/* NOUVEAU COMPOSANT */}
-
-            <ListeProgrammes />
-
-
-          </Container>
-
-        </section>
-
-      )}
-
-
-
-      {/* =================================
-          À PROPOS
-      ================================= */}
-
-      {sectionActive === 'apropos' && (
-
-        <section
-          id="apropos"
-          className={styles.aboutSection}
-        >
-
-          <Container>
-
-            <Row className="align-items-center g-5">
-
-              <Col lg={6}>
-
-                <span className={styles.smallTitle}>
-                  LE CÉGEP
-                </span>
-
-
-                <h2 className={styles.aboutTitle}>
-                  Un milieu à dimension humaine
-                </h2>
-
-
-                <p>
-
-                  Le Cégep de La Pocatière offre un environnement
-                  stimulant où les étudiants peuvent apprendre,
-                  expérimenter et développer leurs compétences.
-
-                </p>
-
-
-                <p>
-
-                  Notre approche favorise la réussite scolaire,
-                  l'autonomie et la préparation au marché du travail.
-
-                </p>
-
-              </Col>
-
-
-              <Col lg={6}>
-
-                <Row className="g-3">
-
-                  <Col sm={6}>
-
-                    <div className={styles.stat}>
-
-                      <strong>
-                        20+
-                      </strong>
-
-                      <span>
-                        Programmes
-                      </span>
-
-                    </div>
-
-                  </Col>
-
-
-                  <Col sm={6}>
-
-                    <div className={styles.stat}>
-
-                      <strong>
-                        100%
-                      </strong>
-
-                      <span>
-                        Engagement
-                      </span>
-
-                    </div>
-
-                  </Col>
-
-
-                  <Col sm={6}>
-
-                    <div className={styles.stat}>
-
-                      <strong>
-                        60+
-                      </strong>
-
-                      <span>
-                        Années d'expérience
-                      </span>
-
-                    </div>
-
-                  </Col>
-
-
-                  <Col sm={6}>
-
-                    <div className={styles.stat}>
-
-                      <strong>
-                        1
-                      </strong>
-
-                      <span>
-                        Communauté
-                      </span>
-
-                    </div>
-
-                  </Col>
-
-                </Row>
-
-              </Col>
-
-            </Row>
-
-          </Container>
-
-        </section>
-
-      )}
-
-    </>
   );
 }

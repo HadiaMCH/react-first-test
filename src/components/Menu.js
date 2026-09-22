@@ -2,29 +2,33 @@ import React from 'react';
 
 import { Nav } from 'react-bootstrap';
 
+import { NavLink } from 'react-router-dom';
+
 import styles from './Menu.module.css';
 
-export default function Menu({
-  sectionActive,
-  changerSection
-}) {
+
+export default function Menu() {
+
+  const classeLien = ({ isActive }) => {
+
+    return isActive
+      ? styles.active
+      : styles.link;
+
+  };
+
 
   return (
+
     <Nav className={styles.menu}>
 
       {/* ACCUEIL */}
 
       <Nav.Link
-        href="#"
-        className={
-          sectionActive === 'accueil'
-            ? styles.active
-            : styles.link
-        }
-        onClick={(event) => {
-          event.preventDefault();
-          changerSection('accueil');
-        }}
+        as={NavLink}
+        to="/"
+        end
+        className={classeLien}
       >
         Accueil
       </Nav.Link>
@@ -33,16 +37,9 @@ export default function Menu({
       {/* FORMATIONS */}
 
       <Nav.Link
-        href="#"
-        className={
-          sectionActive === 'formations'
-            ? styles.active
-            : styles.link
-        }
-        onClick={(event) => {
-          event.preventDefault();
-          changerSection('formations');
-        }}
+        as={NavLink}
+        to="/formations"
+        className={classeLien}
       >
         Formations
       </Nav.Link>
@@ -51,20 +48,14 @@ export default function Menu({
       {/* À PROPOS */}
 
       <Nav.Link
-        href="#"
-        className={
-          sectionActive === 'apropos'
-            ? styles.active
-            : styles.link
-        }
-        onClick={(event) => {
-          event.preventDefault();
-          changerSection('apropos');
-        }}
+        as={NavLink}
+        to="/apropos"
+        className={classeLien}
       >
         À propos
       </Nav.Link>
 
     </Nav>
+
   );
 }
