@@ -12,59 +12,107 @@ import ProgrammeDetail from './ecrans/ProgrammeDetail';
 
 
 export default function Contenu({
+
   programmes,
-  onSupprimer
+  onSupprimer,
+  chargement,
+  erreur
+
 }) {
 
   return (
 
     <Routes>
 
-      {/* ACCUEIL */}
+
+      {/* =================================
+          ACCUEIL
+      ================================= */}
 
       <Route
+
         path="/"
+
         element={
           <Acceuil />
         }
+
       />
 
 
-      {/* FORMATIONS */}
+      {/* =================================
+          FORMATIONS
+      ================================= */}
 
       <Route
+
         path="/formations"
+
         element={
+
           <Formations
-            programmes={programmes}
-            onSupprimer={onSupprimer}
+
+            programmes={
+              programmes
+            }
+
+            onSupprimer={
+              onSupprimer
+            }
+
+            chargement={
+              chargement
+            }
+
+            erreur={
+              erreur
+            }
+
           />
+
         }
+
       />
 
 
-      {/* DÉTAIL D'UN PROGRAMME */}
+      {/* =================================
+          DÉTAIL D'UN PROGRAMME
+      ================================= */}
 
       <Route
+
         path="/formations/:id"
+
         element={
+
           <ProgrammeDetail
-            programmes={programmes}
+            programmes={
+              programmes
+            }
           />
+
         }
+
       />
 
 
-      {/* À PROPOS */}
+      {/* =================================
+          À PROPOS
+      ================================= */}
 
       <Route
+
         path="/apropos"
+
         element={
           <Apropos />
         }
+
       />
+
 
     </Routes>
 
   );
+
 }

@@ -1,21 +1,31 @@
-import React, { useState } from 'react';
+import React, {
+  useState
+} from 'react';
 
 import {
+
   Card,
   Button,
   Badge
+
 } from 'react-bootstrap';
 
-import { Link } from 'react-router-dom';
+import {
+  Link
+} from 'react-router-dom';
 
-import Modal from './Modal';
+import Modal
+  from './Modal';
 
-import styles from './ProgrammeCard.module.css';
+import styles
+  from './ProgrammeCard.module.css';
 
 
 export default function ProgrammeCard({
+
   programme,
   onSupprimer
+
 }) {
 
 
@@ -23,8 +33,10 @@ export default function ProgrammeCard({
      ÉTAT : MODALE
   ================================= */
 
-  const [afficheModal, setAfficheModal] =
-    useState(false);
+  const [
+    afficheModal,
+    setAfficheModal
+  ] = useState(false);
 
 
   /* =================================
@@ -53,13 +65,16 @@ export default function ProgrammeCard({
      CONFIRMER LA SUPPRESSION
   ================================= */
 
-  const confirmerSuppression = () => {
+  const confirmerSuppression =
+    () => {
 
-    onSupprimer(programme.id);
+      onSupprimer(
+        programme.id
+      );
 
-    setAfficheModal(false);
+      setAfficheModal(false);
 
-  };
+    };
 
 
   /* =================================
@@ -70,14 +85,23 @@ export default function ProgrammeCard({
 
     <>
 
-      <Card className={styles.programmeCard}>
+
+      <Card
+        className={
+          styles.programmeCard
+        }
+      >
 
         <Card.Body>
 
 
           {/* ICÔNE */}
 
-          <div className={styles.icon}>
+          <div
+            className={
+              styles.icon
+            }
+          >
 
             {programme.icone}
 
@@ -96,9 +120,15 @@ export default function ProgrammeCard({
           {/* TYPE */}
 
           <Badge
+
             bg="light"
+
             text="dark"
-            className={styles.badge}
+
+            className={
+              styles.badge
+            }
+
           >
 
             {programme.type}
@@ -109,10 +139,14 @@ export default function ProgrammeCard({
           {/* DESCRIPTION */}
 
           <Card.Text
-            className={styles.description}
+            className={
+              styles.description
+            }
           >
 
-            {programme.description}
+            {
+              programme.description
+            }
 
           </Card.Text>
 
@@ -120,23 +154,37 @@ export default function ProgrammeCard({
           {/* DURÉE */}
 
           <Card.Text
-            className={styles.duration}
+            className={
+              styles.duration
+            }
           >
 
-            Durée : {programme.duree}
+            Durée :
+            {' '}
+            {programme.duree}
 
           </Card.Text>
 
 
           {/* ACTIONS */}
 
-          <div className="d-flex gap-2">
+          <div
+            className="d-flex gap-2"
+          >
+
 
             <Button
+
               as={Link}
-              to={`/formations/${programme.id}`}
+
+              to={
+                `/formations/${programme.id}`
+              }
+
               variant="outline-success"
+
               size="sm"
+
             >
 
               Voir détails
@@ -145,14 +193,21 @@ export default function ProgrammeCard({
 
 
             <Button
+
               variant="outline-danger"
+
               size="sm"
-              onClick={afficherModal}
+
+              onClick={
+                afficherModal
+              }
+
             >
 
               Supprimer
 
             </Button>
+
 
           </div>
 
@@ -169,42 +224,67 @@ export default function ProgrammeCard({
       {afficheModal && (
 
         <Modal
-          masquerModal={masquerModal}
+          masquerModal={
+            masquerModal
+          }
         >
 
           <h4>
+
             Supprimer le programme
+
           </h4>
 
 
           <p>
-            Voulez-vous vraiment supprimer
-            le programme
+
+            Voulez-vous vraiment
+            supprimer le programme
             {' '}
+
             <strong>
+
               {programme.titre}
+
             </strong>
+
             ?
+
           </p>
 
 
-          <div className="d-flex gap-2 mt-3">
+          <div
+            className="
+              d-flex
+              gap-2
+              mt-3
+            "
+          >
 
             <Button
+
               variant="danger"
+
               size="sm"
-              onClick={confirmerSuppression}
+
+              onClick={
+                confirmerSuppression
+              }
+
             >
 
-              Confirmer la suppression
+              Confirmer
+              la suppression
 
             </Button>
 
           </div>
 
+
         </Modal>
 
       )}
+
 
     </>
 

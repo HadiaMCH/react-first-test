@@ -1,40 +1,39 @@
 import React from 'react';
 
 import {
-  Container,
-  Card,
-  Badge,
-  Button,
-  Alert
-} from 'react-bootstrap';
-
-import {
   useParams,
   Link
 } from 'react-router-dom';
 
-import styles from '../Contenu.module.css';
+import {
+  Container,
+  Button,
+  Alert
+} from 'react-bootstrap';
 
 
 export default function ProgrammeDetail({
   programmes
 }) {
 
+
   /* =================================
-     RÉCUPÉRER L'ID DEPUIS L'URL
+     RÉCUPÉRER ID DANS URL
   ================================= */
 
-  const { id } = useParams();
+  const { id } =
+    useParams();
 
 
   /* =================================
      TROUVER LE PROGRAMME
   ================================= */
 
-  const programme = programmes.find(
-    (programme) =>
-      programme.id === Number(id)
-  );
+  const programme =
+    programmes.find(
+      (programme) =>
+        String(programme.id) === id
+    );
 
 
   /* =================================
@@ -45,28 +44,30 @@ export default function ProgrammeDetail({
 
     return (
 
-      <section className={styles.section}>
+      <Container className="py-5">
 
-        <Container>
+        <Alert variant="warning">
 
-          <Alert variant="warning">
+          Programme introuvable.
 
-            Programme introuvable.
-
-          </Alert>
+        </Alert>
 
 
-          <Button
-            as={Link}
-            to="/formations"
-            variant="outline-success"
-          >
-            Retour aux formations
-          </Button>
+        <Button
 
-        </Container>
+          as={Link}
 
-      </section>
+          to="/formations"
+
+          variant="success"
+
+        >
+
+          Retour aux formations
+
+        </Button>
+
+      </Container>
 
     );
 
@@ -74,109 +75,81 @@ export default function ProgrammeDetail({
 
 
   /* =================================
-     AFFICHAGE DU PROGRAMME
+     AFFICHAGE
   ================================= */
 
   return (
 
-    <section className={styles.section}>
-
-      <Container>
-
-        <div className={styles.sectionHeader}>
-
-          <span className={styles.smallTitle}>
-            DÉTAIL DU PROGRAMME
-          </span>
+    <Container className="py-5">
 
 
-          <h2>
-            {programme.titre}
-          </h2>
+      <div
+        style={{
+          fontSize: '4rem'
+        }}
+      >
 
-        </div>
+        {programme.icone}
 
-
-        <Card>
-
-          <Card.Body>
-
-
-            {/* ICÔNE */}
-
-            <div className="fs-1 mb-3">
-
-              {programme.icone}
-
-            </div>
+      </div>
 
 
-            {/* TITRE */}
+      <h1>
 
-            <Card.Title>
+        {programme.titre}
 
-              {programme.titre}
-
-            </Card.Title>
+      </h1>
 
 
-            {/* TYPE */}
+      <p>
 
-            <Badge
-              bg="light"
-              text="dark"
-              className="mb-3"
-            >
+        {programme.description}
 
-              {programme.type}
-
-            </Badge>
+      </p>
 
 
-            {/* DESCRIPTION */}
+      <p>
 
-            <Card.Text>
+        <strong>
+          Type :
+        </strong>
 
-              {programme.description}
+        {' '}
 
-            </Card.Text>
+        {programme.type}
 
-
-            {/* DURÉE */}
-
-            <Card.Text>
-
-              <strong>
-                Durée :
-              </strong>
-
-              {' '}
-
-              {programme.duree}
-
-            </Card.Text>
+      </p>
 
 
-            {/* RETOUR */}
+      <p>
 
-            <Button
-              as={Link}
-              to="/formations"
-              variant="outline-success"
-            >
+        <strong>
+          Durée :
+        </strong>
 
-              Retour aux formations
+        {' '}
 
-            </Button>
+        {programme.duree}
+
+      </p>
 
 
-          </Card.Body>
+      <Button
 
-        </Card>
+        as={Link}
 
-      </Container>
+        to="/formations"
 
-    </section>
+        variant="outline-success"
+
+      >
+
+        Retour aux formations
+
+      </Button>
+
+
+    </Container>
 
   );
 
