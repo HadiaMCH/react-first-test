@@ -11,6 +11,8 @@ import {
   Alert
 } from 'react-bootstrap';
 
+import EstimateurCharge from '../EstimateurCharge';
+
 
 export default function ProgrammeDetail({
   programmes
@@ -54,13 +56,9 @@ export default function ProgrammeDetail({
 
 
         <Button
-
           as={Link}
-
           to="/formations"
-
           variant="success"
-
         >
 
           Retour aux formations
@@ -83,6 +81,8 @@ export default function ProgrammeDetail({
     <Container className="py-5">
 
 
+      {/* ICÔNE */}
+
       <div
         style={{
           fontSize: '4rem'
@@ -94,6 +94,8 @@ export default function ProgrammeDetail({
       </div>
 
 
+      {/* TITRE */}
+
       <h1>
 
         {programme.titre}
@@ -101,12 +103,16 @@ export default function ProgrammeDetail({
       </h1>
 
 
+      {/* DESCRIPTION */}
+
       <p>
 
         {programme.description}
 
       </p>
 
+
+      {/* TYPE */}
 
       <p>
 
@@ -121,6 +127,8 @@ export default function ProgrammeDetail({
       </p>
 
 
+      {/* DURÉE */}
+
       <p>
 
         <strong>
@@ -134,14 +142,34 @@ export default function ProgrammeDetail({
       </p>
 
 
+      {/* =================================
+          ESTIMATEUR DE CHARGE
+      ================================= */}
+
+      <EstimateurCharge
+        programmeTitre={programme.titre}
+      >
+
+        <p>
+
+          Entre une estimation des heures
+          de cours et des heures d'étude
+          personnelle.
+
+        </p>
+
+      </EstimateurCharge>
+
+
+      {/* =================================
+          RETOUR
+      ================================= */}
+
       <Button
-
         as={Link}
-
         to="/formations"
-
         variant="outline-success"
-
+        className="mt-4"
       >
 
         Retour aux formations
